@@ -1,0 +1,19 @@
+<h1>レストラン検索結果</h1>
+
+<% if flash[:alert] %>
+  <p class="alert"><%= flash[:alert] %></p>
+<% end %>
+
+<% if @restaurants && @restaurants[:results][:shop].present? %>
+  <ul>
+    <% @restaurants[:results][:shop].each do |shop| %>
+      <li>
+        <strong><%= shop[:name] %></strong><br>
+        住所: <%= shop[:address] %><br>
+        詳細: <a href="<%= shop[:urls][:pc] %>" target="_blank">店舗ページ</a>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>検索結果がありません。</p>
+<% end %>
