@@ -11,6 +11,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class = "header_space"></div>
+    <div class = "pagecontent">
+      <div class='<%= controller.controller_name %>'>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
