@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   get "restaurants/search", to: "restaurants#search"
   get "restaurants/result", to: "restaurants#result"
+  get "restaurants/show", to: "restaurants#show"
 end

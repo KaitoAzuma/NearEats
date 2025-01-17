@@ -8,9 +8,13 @@
   <ul>
     <% @restaurants[:results][:shop].each do |shop| %>
       <li>
-        <strong><%= shop[:name] %></strong><br>
-        住所: <%= shop[:address] %><br>
-        詳細: <a href="<%= shop[:urls][:pc] %>" target="_blank">店舗ページ</a>
+        <%= link_to restaurants_show_path(id: shop[:id]), class: "show_link" do %>
+          <strong><%= shop[:name] %></strong><br>
+          <img src="<%= shop[:photo][:pc][:l] %>">
+          住所: <%= shop[:address] %><br>
+          アクセス: <%= shop[:access] %><br>
+          詳細: <a href="<%= shop[:urls][:pc] %>" target="_blank">店舗ページ</a>
+        <% end %>
       </li>
     <% end %>
   </ul>

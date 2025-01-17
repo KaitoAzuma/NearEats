@@ -24,10 +24,37 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<h1>位置情報</h1>
+<h1>周辺のレストランを検索</h1>
 
-<%= form_with url: restaurants_search_path, method: :get, local: true do |form| %>
+<%= form_with url: restaurants_result_path, method: :get, local: true do |form| %>
   <%= form.hidden_field :latitude, id: 'latitude' %>
+
   <%= form.hidden_field :longitude, id: 'longitude' %>
+
+  <p>
+    検索範囲:  <%= form.radio_button :range, 1 %>300m
+              <%= form.radio_button :range, 2 %>500m
+              <%= form.radio_button :range, 3, checked: true %>1km
+              <%= form.radio_button :range, 4 %>2km
+              <%= form.radio_button :range, 5 %>3km
+  </p>
+
+  <p>
+    <%= form.label :option, "Wi-Fiあり" %><%= form.check_box :option, { multiple: true }, "wifi" %>
+    <%= form.label :option, "ランチあり" %><%= form.check_box :option, { multiple: true }, "lunch" %>
+    <%= form.label :option, "飲み放題あり" %><%= form.check_box :option, { multiple: true }, "free_drink" %><br>
+    <%= form.label :option, "食べ放題あり" %><%= form.check_box :option, { multiple: true }, "free_food" %>
+    <%= form.label :option, "個室あり" %><%= form.check_box :option, { multiple: true }, "private_room" %>
+    <%= form.label :option, "禁煙席あり" %><%= form.check_box :option, { multiple: true }, "non_smoking" %><br>
+    <%= form.label :option, "駐車場あり" %><%= form.check_box :option, { multiple: true }, "parking" %>
+    <%= form.label :option, "バリアフリー" %><%= form.check_box :option, { multiple: true }, "barrier_free" %>
+    <%= form.label :option, "ペット可" %><%= form.check_box :option, { multiple: true }, "pet" %><br>
+  </p>
+
+  <p>
+    <%= form.label :name, "店舗名(部分一致)" %>
+    <%= form.text_field :name, class: "hoge", size: 30 %>
+  </p>
+
   <%= form.submit "送信" %>
 <% end %>

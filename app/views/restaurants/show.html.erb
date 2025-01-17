@@ -1,0 +1,30 @@
+<h1>レストラン詳細情報</h1>
+
+<% if flash[:alert] %>
+  <p class="alert"><%= flash[:alert] %></p>
+<% end %>
+
+<% if @shop_detail.present? %>
+  <ul>
+    <li>
+        <strong><%= @shop_detail[:name] %></strong><br>
+        <img src="<%= @shop_detail[:photo][:pc][:l] %>"><br>
+        ジャンル: <%= @shop_detail[:genre][:name] %><br>
+        営業時間: <%= @shop_detail[:open] %>　定休日: <%= @shop_detail[:close] %><br>
+        住所: <%= @shop_detail[:address] %><br>
+        アクセス: <%= @shop_detail[:access] %><br>
+
+        ランチ: <%= @shop_detail[:lunch] %><br>
+        飲み放題: <%= @shop_detail[:free_drink] %><br>
+        食べ放題: <%= @shop_detail[:free_food] %><br>
+        Wi-Fi: <%= @shop_detail[:wifi] %><br>
+        個室: <%= @shop_detail[:private_room] %><br>
+        禁煙席: <%= @shop_detail[:non_smoking] %><br>
+        駐車場: <%= @shop_detail[:parking] %><br>
+        バリアフリー: <%= @shop_detail[:barrier_free] %><br>
+        ペット: <%= @shop_detail[:pet] %><br>
+
+        詳細: <a href="<%= @shop_detail[:urls][:pc] %>" target="_blank">店舗ページ</a>
+    </li>
+  </ul>
+<% end %>
