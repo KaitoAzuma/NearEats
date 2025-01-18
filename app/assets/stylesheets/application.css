@@ -132,3 +132,16 @@
     width: 100%;
     height: 90px;
 }
+
+.link_log{
+    display: block;
+    width: 95%;
+    position: relative;
+    left: 5%;
+    margin-top: 8px;
+}
+
+.back_link{
+    color: rgb(44, 111, 255);
+    text-decoration: none;
+}
