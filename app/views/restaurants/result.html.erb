@@ -2,14 +2,14 @@
   <%= link_to "検索条件⼊⼒", restaurants_search_path, class: "back_link" %> <%= ">" %> <%= "レストラン検索結果" %> 
 </div> 
 
-<h1 class="pagetitle">レストラン検索結果</h1>
+<h1 class="pagetitle pagetitle_adjust">レストラン検索結果</h1>
 
 <% if flash[:alert] %>
   <p class="alert"><%= flash[:alert] %></p>
 <% end %>
 
-<% if @restaurants && @restaurants[:results][:shop].present? %>
-  <% @restaurants[:results][:shop].each do |shop| %>
+<% if @restaurants && @restaurants.present? %>
+  <% @restaurants.each do |shop| %>
     <div class="shoplist_container">
       <%= link_to restaurants_show_path(id: shop[:id]), class: "show_link" do %>
         <div class="shoplist_flexitem1">
@@ -29,6 +29,10 @@
     </div>
     <hr class="shoplist_border">
   <% end %>
+
+  <div class="paginate">
+    <%= paginate @restaurants %>
+  </div>
 <% else %>
   <p>レストラン情報が見つかりませんでした。</p>
 <% end %>

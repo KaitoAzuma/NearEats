@@ -29,6 +29,9 @@ gem "jbuilder"
 # httpクライアントgem
 gem "faraday"
 
+# ページングgem
+gem "kaminari"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

@@ -9,7 +9,10 @@
 
     .pagetitle{
         text-align: center;
-        margin: 40px 0;
+        margin: 50px 0;
+    }
+    .pagetitle_adjust{
+        margin: 30px 0 50px 0;
     }
 
     .form_container{
@@ -77,5 +80,40 @@
 
     .shoplist_border{
         width: 750px;
+    }
+
+    .pagination{
+        margin: 40px auto 60px;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        span{
+            text-align: center;
+            width: 40px;
+            :hover{
+                background-color:#f3f3f3;
+            }
+            a{
+                color: #000000;
+                text-decoration: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+                :hover{
+                    background-color: #f3f3f3;
+                  }
+            }
+        }
+    }
+    .current{
+        color: white;
+        background-color: #FFC224;
+    }
+    .gap{
+        background-color: white !important;
+    }
+
+    .paginate{
+        text-align: center;
     }
 }

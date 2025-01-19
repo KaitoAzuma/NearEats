@@ -41,7 +41,7 @@ document.addEventListener('turbo:load', () => {
       <%= form.radio_button :range, 5 %>3km
     </p>
 
-    <p>
+    
       <strong><%= form.label :option, "検索オプション（複数選択可）" %></strong><br>
       <div class="checkbox_unit"><%= form.label :option, "Wi-Fiあり" %><%= form.check_box :option, { multiple: true }, "wifi" %></div>
       <div class="checkbox_unit"><%= form.label :option, "ランチあり" %><%= form.check_box :option, { multiple: true }, "lunch" %></div>
@@ -52,7 +52,7 @@ document.addEventListener('turbo:load', () => {
       <div class="checkbox_unit"><%= form.label :option, "駐車場あり" %><%= form.check_box :option, { multiple: true }, "parking" %></div>
       <div class="checkbox_unit"><%= form.label :option, "バリアフリー" %><%= form.check_box :option, { multiple: true }, "barrier_free" %></div>
       <div class="checkbox_unit"><%= form.label :option, "ペット可" %><%= form.check_box :option, { multiple: true }, "pet" %></div><br>
-    </p>
+    
 
     <p>
       <strong><%= form.label :name, "店舗名（部分一致）" %></strong><br>
