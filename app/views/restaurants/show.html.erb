@@ -1,30 +1,70 @@
-<h1>レストラン詳細情報</h1>
+<div class="link_log">
+  <%= link_to "検索条件⼊⼒", restaurants_search_path, class: "back_link" %> <%= ">" %> <%= link_to '検索結果', 'javascript:history.back()', class: "back_link" %> 
+   <%= ">" %> <%= "店舗詳細" %> 
+</div>
 
-<% if flash[:alert] %>
-  <p class="alert"><%= flash[:alert] %></p>
-<% end %>
+<div class="shopdetail_content">
+  <% if flash[:alert] %>
+    <p class="alert"><%= flash[:alert] %></p>
+  <% end %>
 
-<% if @shop_detail.present? %>
-  <ul>
-    <li>
-        <strong><%= @shop_detail[:name] %></strong><br>
-        <img src="<%= @shop_detail[:photo][:pc][:l] %>"><br>
-        ジャンル: <%= @shop_detail[:genre][:name] %><br>
-        営業時間: <%= @shop_detail[:open] %>　定休日: <%= @shop_detail[:close] %><br>
-        住所: <%= @shop_detail[:address] %><br>
-        アクセス: <%= @shop_detail[:access] %><br>
+  <% if @shop_detail.present? %>
+    <div class="shopdetail_head">
+      <h2><%= @shop_detail[:name] %></h2>
+      <%= @shop_detail[:genre][:name] %><br>
+    </div>
 
-        ランチ: <%= @shop_detail[:lunch] %><br>
-        飲み放題: <%= @shop_detail[:free_drink] %><br>
-        食べ放題: <%= @shop_detail[:free_food] %><br>
-        Wi-Fi: <%= @shop_detail[:wifi] %><br>
-        個室: <%= @shop_detail[:private_room] %><br>
-        禁煙席: <%= @shop_detail[:non_smoking] %><br>
-        駐車場: <%= @shop_detail[:parking] %><br>
-        バリアフリー: <%= @shop_detail[:barrier_free] %><br>
-        ペット: <%= @shop_detail[:pet] %><br>
+    <img src="<%= @shop_detail[:photo][:pc][:l] %>" class="detail_image"><br>
+    
+    <h3><%= @shop_detail[:catch] %></h3>
 
-        詳細: <a href="<%= @shop_detail[:urls][:pc] %>" target="_blank">店舗ページ</a>
-    </li>
-  </ul>
-<% end %>
+    <table class="table_design">
+      <tbody>
+        <tr>
+          <th>住所</th>
+          <td>
+            <%= @shop_detail[:address] %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>アクセス</th>
+          <td>
+            最寄り駅: <%= @shop_detail[:station_name] %><br>
+            <%= @shop_detail[:access] %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>営業時間</th>
+          <td>
+            <p><%= @shop_detail[:open] %></p>
+            <p>定休日: <%= @shop_detail[:close] %></p>
+          </td>
+        </tr>
+
+        <tr>
+          <th class="options_th">店舗情報</th>
+          <td>
+            ランチ: <%= @shop_detail[:lunch] %><br>
+            飲み放題: <%= @shop_detail[:free_drink] %><br>
+            食べ放題: <%= @shop_detail[:free_food] %><br>
+            Wi-Fi: <%= @shop_detail[:wifi] %><br>
+            個室: <%= @shop_detail[:private_room] %><br>
+            禁煙席: <%= @shop_detail[:non_smoking] %><br>
+            駐車場: <%= @shop_detail[:parking] %><br>
+            バリアフリー: <%= @shop_detail[:barrier_free] %><br>
+            ペット: <%= @shop_detail[:pet] %><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    
+
+    詳細: <a href="<%= @shop_detail[:urls][:pc] %>" target="_blank">店舗ページ</a><br>
+  <% end %>
+
+  <a href="http://webservice.recruit.co.jp/"><img src="http://webservice.recruit.co.jp/banner/hotpepper-s.gif" 
+  alt="ホットペッパーグルメ Webサービス" width="135" height="17" border="0" title="ホットペッパーグルメ Webサービス"></a>
+</div>

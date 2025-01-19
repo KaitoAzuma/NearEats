@@ -1,5 +1,5 @@
 <div class="link_log">
-  <%= link_to "検索条件⼊⼒", restaurants_search_path, class: "back_link" %> <%= ">" %> <%= "レストラン検索結果" %> 
+  <%= link_to "検索条件⼊⼒", restaurants_search_path, class: "back_link" %> <%= ">" %> <%= "検索結果" %> 
 </div> 
 
 <h1 class="pagetitle pagetitle_adjust">レストラン検索結果</h1>
@@ -9,6 +9,11 @@
 <% end %>
 
 <% if @restaurants && @restaurants.present? %>
+  <div class="shopcount_display">
+    <strong><%= @start %></strong> ～ <strong><%= (@start + @current_shops_count) - 1 %></strong> 件を表示 / 
+    全 <strong><%= @total_shops_count %></strong> 件
+  </div>
+
   <% @restaurants.each do |shop| %>
     <div class="shoplist_container">
       <%= link_to restaurants_show_path(id: shop[:id]), class: "show_link" do %>

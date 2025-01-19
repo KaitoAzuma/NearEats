@@ -20,10 +20,13 @@ class RestaurantsController < ApplicationController
     # グルメサーチAPIへHTTPリクエストを送信して、レスポンスを取得する
     if lat.present? && lng.present?
       api_client = HotpepperApiClient.new()
-      @restaurants = api_client.search_restaurants(lat, lng, range, count, options, name)
+      @restaurants_all = api_client.search_restaurants(lat, lng, range, count, options, name)
 
       # ページング処理
-      @restaurants = Kaminari.paginate_array(@restaurants[:results][:shop]).page(page).per(per_page)
+      @restaurants = Kaminari.paginate_array(@restaurants_all[:results][:shop]).page(page).per(per_page)
+      @current_shops_count = @restaurants.size
+      @total_shops_count = @restaurants_all[:results][:results_returned]
+      @start = (page.to_i - 1) * per_page + 1
     else
       # 緯度経度が正しく取得できなかった場合のエラー処理
       @restaurants = nil

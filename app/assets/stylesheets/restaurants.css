@@ -50,6 +50,10 @@
         transition: transform 0.1s ease-in-out;
     }
 
+    .shopcount_display{
+        text-align: center;
+    }
+
     .shoplist_container{
         width: 600px;
         padding: 20px 35px;
@@ -115,5 +119,62 @@
 
     .paginate{
         text-align: center;
+    }
+
+    .shopdetail_content{
+        width: 70%;
+        padding: 30px 50px;
+        margin: 60px auto;
+        border-radius: 30px;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+
+        .shopdetail_head{
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #acacac;
+        }
+
+        h2{
+            margin-bottom: 0;
+        }
+
+        h3{
+            margin: 30px 0;
+        }
+
+        .detail_image{
+            width: 40%;
+        }
+
+        .table_design {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 700px;
+        }
+        .table_design th, .table_design td {
+            padding: 1em;
+        }
+        .table_design th {
+            color: #4d9bc1;
+            font-weight: bold;
+            text-align: left;
+            width: 20%;
+            min-width: 4em;
+            position: relative;
+        }
+        .table_design th::after {
+            content: '';
+            background-color: #c1c7c6;
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+        }
+
+        .table_design .options_th::after {
+            height: 90%;
+        }
     }
 }
