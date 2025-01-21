@@ -77,24 +77,41 @@
         cursor:  pointer;
     }
 
-    /* ここから下がハンバーガーメニューに関するCSS */
+    /* ここから下がサイドメニューに関するCSS */
   
     /* チェックボックスを非表示にする */
     .drawer_hidden {
         display: none;
     }
-    /* ハンバーガーアイコンの設置スペース */
+
+    .icon_box{
+        display: block;
+        position: absolute;
+        margin: 15px 30px 0 0;
+        height: 40px;
+        width: 40px;
+        right: 0%;
+
+        .user_icon{
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+    }
+
+    /* ユーザーアイコンの設置スペース */
     .drawer_open {
-        display: flex;
-        height: 90px;
-        width: 90px;
+        display: block;
+        position: relative;
+        margin-top: 6px;
         justify-content: center;
         align-items: center;
-        position: relative;
+        right: 0;
         z-index: 100;/* 重なり順を一番上にする */
         cursor: pointer;
     }
     /* ハンバーガーメニューのアイコン */
+    /*
     .drawer_open span,
     .drawer_open span:before,
     .drawer_open span:after {
@@ -106,20 +123,24 @@
         background: #333;
         transition: 0.5s;
         position: absolute;
-    }
+    }*/
     /* 三本線の一番上の棒の位置調整 */
+    /*
     .drawer_open span:before {
         bottom: 8px;
-    }
+    }*/
     /* 三本線の一番下の棒の位置調整 */
+    /*
     .drawer_open span:after {
         top: 8px;
-    }
+    }*/
     /* アイコンがクリックされたら真ん中の線を透明にする */
+    /*
     #drawer_input:checked ~ .drawer_open span {
         background: rgba(255, 255, 255, 0);
-    }
+    }*/
     /* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+    /*
     #drawer_input:checked ~ .drawer_open span::before {
         bottom: 0;
         transform: rotate(45deg);
@@ -127,14 +148,14 @@
     #drawer_input:checked ~ .drawer_open span::after {
         top: 0;
         transform: rotate(-45deg);
-    }
+    }*/
     /* メニューのデザイン*/
     .nav_content {
         width: 20%;
         height: 100%;
         position: fixed;
         top: 0;
-        right: 100%; /* メニューを画面の外に飛ばす */
+        left: 100%; /* メニューを画面の外に飛ばす */
         z-index: 99;
         background: #FFC224;
         transition: .5s;
@@ -143,25 +164,49 @@
     .nav_list {
         position: relative;
         list-style: none;
-        top: 50px;
+        top: 100px;
         .list_sub{
             font-weight: bold;
             color: white;
         }
     }
+    .username_display {
+        text-align: right;
+        position: relative;
+        top: 70px;
+        right: 0%;
+        margin-right: 15px;
+        font-weight: bold;
+        color: white;
+    }
+    .sidemenu_border {
+        position: relative;
+        top: 80px;
+        width: 80%;
+        border: 1px #f9d67e solid;
+    }
     .nav_item {
+        margin: 0 0 40px 0;
         
         .list_item{
-            margin: 0 0 40px 0;
             font-weight: bold;
             font-size: 20px;
             text-decoration: none;
             color: white;
         }
+
+        .logout_button{
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            color: white;
+            background-color: #FFC224;
+            cursor: pointer;
+        }
     }
     /* アイコンがクリックされたらメニューを表示 */
     #drawer_input:checked ~ .nav_content {
-        right: 80%;/* メニューを画面に入れる */
+        left: 80%;/* メニューを画面に入れる */
     }
 }
 
