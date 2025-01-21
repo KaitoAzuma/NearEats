@@ -9,7 +9,11 @@ class RestaurantsController < ApplicationController
     lat = params[:latitude].to_f
     lng = params[:longitude].to_f
     range = params[:range].to_i
-    options = params[:option].select { |value| value != "0" }
+    if params[:option].present?
+      options = params[:option]
+    else
+      options = 0
+    end
     name = params[:name]
     count = 50
 
@@ -42,5 +46,10 @@ class RestaurantsController < ApplicationController
       flash[:alert] = "レストラン情報が見つかりませんでした。"
     end
     @shop_detail = @restaurant[:results][:shop][0]
+    @result_url = params[:result_url] || restaurants_search_path
+  end
+
+  def ex
+    redirect_back(fallback_location: restaurants_search_path)
   end
 end

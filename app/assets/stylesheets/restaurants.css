@@ -15,10 +15,16 @@
         margin: 30px 0 50px 0;
     }
 
+    .hotpepper_display{
+        display: block;
+        width: 150px;
+        margin: 20px auto;
+    }
+
     .form_container{
         display: block;
         width: 500px;
-        padding: 20px 35px;
+        padding: 30px 35px;
         margin: 30px auto;
         border-radius: 20px; /* ボーダーの角丸 */
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.3); /* 影 */

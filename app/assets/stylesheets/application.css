@@ -40,6 +40,43 @@
         color: #502d06;
     }
 
+    .login_status{
+        float: right;
+        position: absolute;
+        display: inline;
+        top: 22px;
+        right: 2%;
+
+        .button_to{
+            display: inline;
+        }
+    }
+
+    .login_button{
+        position: relative;
+        right: 0%;
+        text-decoration: none;
+        font-weight: bold;
+        color: #787878;
+        background-color: white;
+        padding: 10px 15px;
+        border: 2px solid #787878;
+        border-radius: 15px;
+        cursor:  pointer;
+    }
+    .signup_button{
+        position: relative;
+        right: 0%;
+        text-decoration: none;
+        font-weight: bold;
+        color: #787878;
+        background-color: white;
+        padding: 10px 15px;
+        border: 2px solid #787878;
+        border-radius: 15px;
+        cursor:  pointer;
+    }
+
     /* ここから下がハンバーガーメニューに関するCSS */
   
     /* チェックボックスを非表示にする */

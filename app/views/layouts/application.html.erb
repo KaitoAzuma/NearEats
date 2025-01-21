@@ -15,7 +15,9 @@
     <div class = "header_space"></div>
     <div class = "pagecontent">
       <div class='<%= controller.controller_name %>'>
-        <%= yield %>
+        <div class='<%= controller.action_name %>'>
+          <%= yield %>
+        </div>
       </div>
     </div>
   </body>

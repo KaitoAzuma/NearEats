@@ -32,6 +32,12 @@ gem "faraday"
 # ページングgem
 gem "kaminari"
 
+# 環境変数.envの管理gem
+gem "dotenv-rails"
+
+# ログイン実装gem
+gem "devise"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

@@ -16,7 +16,7 @@
 
   <% @restaurants.each do |shop| %>
     <div class="shoplist_container">
-      <%= link_to restaurants_show_path(id: shop[:id]), class: "show_link" do %>
+      <%= link_to restaurants_show_path(id: shop[:id], result_url: request.url), class: "show_link" do %>
         <div class="shoplist_flexitem1">
           <img src="<%= shop[:photo][:pc][:l] %>" class="shopinfo_image">
         </div>
@@ -37,6 +37,11 @@
 
   <div class="paginate">
     <%= paginate @restaurants %>
+  </div>
+
+  <div class="hotpepper_display">
+    <a href="http://webservice.recruit.co.jp/"><img src="http://webservice.recruit.co.jp/banner/hotpepper-s.gif" 
+    alt="ホットペッパーグルメ Webサービス" width="135" height="17" border="0" title="ホットペッパーグルメ Webサービス"></a>
   </div>
 <% else %>
   <p>レストラン情報が見つかりませんでした。</p>

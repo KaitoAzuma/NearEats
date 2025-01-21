@@ -18,4 +18,18 @@
         </ul>
         </nav>
     </div>
+
+    <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+        <!-- ユーザーがログインしていた時の処理 -->
+
+        <div class="login_status">
+            <%= button_to "ログアウト", destroy_user_session_path, class: 'login_button', method: :delete %> <!-- ログアウトをする -->
+        </div>
+    <% else %>
+        <!-- ユーザーがログインしていなかった時の処理 -->
+        <div class="login_status">
+            <%= button_to 'ログイン', new_user_session_path, method: :get, class: "login_button" %><!-- ログイン画面に移行する -->
+            <%= button_to "サインアップ", new_user_registration_path, method: :get, class: 'signup_button' %> <!-- 新規登録画面に移行する -->
+        </div>
+    <% end %>
 </div>

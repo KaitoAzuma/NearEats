@@ -27,6 +27,8 @@ document.addEventListener('turbo:load', () => {
 <h1 class="pagetitle">周辺のレストランを検索</h1>
 
 <div class="form_container">
+  <p>取得した位置情報から周辺のレストランを検索します。</p>
+
   <%= form_with url: restaurants_result_path, method: :get, local: true do |form| %>
     <%= form.hidden_field :latitude, id: 'latitude' %>
 
@@ -43,15 +45,15 @@ document.addEventListener('turbo:load', () => {
 
     
       <strong><%= form.label :option, "検索オプション（複数選択可）" %></strong><br>
-      <div class="checkbox_unit"><%= form.label :option, "Wi-Fiあり" %><%= form.check_box :option, { multiple: true }, "wifi" %></div>
-      <div class="checkbox_unit"><%= form.label :option, "ランチあり" %><%= form.check_box :option, { multiple: true }, "lunch" %></div>
-      <div class="checkbox_unit"><%= form.label :option, "飲み放題あり" %><%= form.check_box :option, { multiple: true }, "free_drink" %></div><br>
-      <div class="checkbox_unit"><%= form.label :option, "食べ放題あり" %><%= form.check_box :option, { multiple: true }, "free_food" %></div>
-      <div class="checkbox_unit"><%= form.label :option, "個室あり" %><%= form.check_box :option, { multiple: true }, "private_room" %></div>
-      <div class="checkbox_unit"><%= form.label :option, "禁煙席あり" %><%= form.check_box :option, { multiple: true }, "non_smoking" %></div><br>
-      <div class="checkbox_unit"><%= form.label :option, "駐車場あり" %><%= form.check_box :option, { multiple: true }, "parking" %></div>
-      <div class="checkbox_unit"><%= form.label :option, "バリアフリー" %><%= form.check_box :option, { multiple: true }, "barrier_free" %></div>
-      <div class="checkbox_unit"><%= form.label :option, "ペット可" %><%= form.check_box :option, { multiple: true }, "pet" %></div><br>
+      <div class="checkbox_unit"><%= form.label :option, "Wi-Fiあり" %><%= form.check_box :option, { multiple: true }, "wifi", nil %></div>
+      <div class="checkbox_unit"><%= form.label :option, "ランチあり" %><%= form.check_box :option, { multiple: true }, "lunch", nil %></div>
+      <div class="checkbox_unit"><%= form.label :option, "飲み放題あり" %><%= form.check_box :option, { multiple: true }, "free_drink", nil %></div><br>
+      <div class="checkbox_unit"><%= form.label :option, "食べ放題あり" %><%= form.check_box :option, { multiple: true }, "free_food", nil %></div>
+      <div class="checkbox_unit"><%= form.label :option, "個室あり" %><%= form.check_box :option, { multiple: true }, "private_room", nil %></div>
+      <div class="checkbox_unit"><%= form.label :option, "禁煙席あり" %><%= form.check_box :option, { multiple: true }, "non_smoking", nil %></div><br>
+      <div class="checkbox_unit"><%= form.label :option, "駐車場あり" %><%= form.check_box :option, { multiple: true }, "parking", nil %></div>
+      <div class="checkbox_unit"><%= form.label :option, "バリアフリー" %><%= form.check_box :option, { multiple: true }, "barrier_free", nil %></div>
+      <div class="checkbox_unit"><%= form.label :option, "ペット可" %><%= form.check_box :option, { multiple: true }, "pet", nil %></div><br>
     
 
     <p>

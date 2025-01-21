@@ -6,7 +6,7 @@ class HotpepperApiClient
 
   # APIキーとFaradayの初期化
   def initialize()
-    @api_key = "dfc525ce7760c49b"
+    @api_key = ENV["HOTPEPPER_API_KEY"]
     @connection = Faraday.new(url: BASE_URL) do |conn|
       conn.request :url_encoded # URLエンコード形式でリクエストを送信
       conn.adapter Faraday.default_adapter # デフォルトのHTTPアダプター
@@ -21,8 +21,8 @@ class HotpepperApiClient
       req.params[:lng] = lng # 経度
       req.params[:range] = range # 検索範囲 (1〜5: 小さいほど狭い範囲)
 
-      # optionsに含まれる文字列(パラメータ名)を参照し、そのパラメータの値を1に設定
-      if options.any?
+      # optionsが存在した場合、含まれる文字列(パラメータ名)を参照し、そのパラメータの値を1に設定
+      if options != 0
         options.each do |option|
           req.params[option.to_sym] = 1
         end

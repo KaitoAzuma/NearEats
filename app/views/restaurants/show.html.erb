@@ -1,6 +1,6 @@
 <div class="link_log">
-  <%= link_to "検索条件⼊⼒", restaurants_search_path, class: "back_link" %> <%= ">" %> <%= link_to '検索結果', 'javascript:history.back()', class: "back_link" %> 
-   <%= ">" %> <%= "店舗詳細" %> 
+  <%= link_to "検索条件⼊⼒", restaurants_search_path, class: "back_link" %> <%= ">" %> <%= link_to '検索結果', @result_url, class: "back_link" %> 
+   <%= ">" %> <%= "店舗詳細" %>
 </div>
 
 <div class="shopdetail_content">
@@ -11,7 +11,8 @@
   <% if @shop_detail.present? %>
     <div class="shopdetail_head">
       <h2><%= @shop_detail[:name] %></h2>
-      <%= @shop_detail[:genre][:name] %><br>
+      <strong>ジャンル：</strong><%= @shop_detail[:genre][:name] %><br>
+      <strong>予算：</strong><%= @shop_detail[:budget][:name] %>
     </div>
 
     <img src="<%= @shop_detail[:photo][:pc][:l] %>" class="detail_image"><br>
@@ -46,6 +47,7 @@
         <tr>
           <th class="options_th">店舗情報</th>
           <td>
+            席数: <%= @shop_detail[:capacity] %><br>
             ランチ: <%= @shop_detail[:lunch] %><br>
             飲み放題: <%= @shop_detail[:free_drink] %><br>
             食べ放題: <%= @shop_detail[:free_food] %><br>
@@ -57,12 +59,17 @@
             ペット: <%= @shop_detail[:pet] %><br>
           </td>
         </tr>
+
+        <tr>
+          <th>URL</th>
+          <td>
+            <a href="<%= @shop_detail[:urls][:pc] %>" target="_blank">ホットペッパーグルメ 店舗ページ</a>
+          </td>
+        </tr>
       </tbody>
     </table>
 
-    
-
-    詳細: <a href="<%= @shop_detail[:urls][:pc] %>" target="_blank">店舗ページ</a><br>
+    <%= link_to 'exページ', restaurants_ex_path %>
   <% end %>
 
   <a href="http://webservice.recruit.co.jp/"><img src="http://webservice.recruit.co.jp/banner/hotpepper-s.gif" 
