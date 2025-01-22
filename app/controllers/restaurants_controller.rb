@@ -39,17 +39,28 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    # パラメータで指定したidを基に単体の店舗情報を取得し直す
+    # 参照する店舗のidを設定
+    @shop_id = params[:id]
+
+    # 店舗のidを基に単体の店舗情報を取得し直す
     api_client = HotpepperApiClient.new()
-    @restaurant = api_client.search_restaurant_id(params[:id])
+    @restaurant = api_client.search_restaurant_id(@shop_id)
     if @restaurant.nil? || @restaurant[:results][:shop].empty?
       flash[:alert] = "レストラン情報が見つかりませんでした。"
     end
     @shop_detail = @restaurant[:results][:shop][0]
     @result_url = params[:result_url] || restaurants_search_path
+
+    # 参照する店舗に対するコメントを取得
+    @comments = Comment.where(shop_id: @shop_id)
+
+    # ユーザーがログインしている場合、新しいコメント用のインスタンスを作成する
+    if user_signed_in?
+      @new_comment = Comment.new
+    end
   end
 
   def ex
-    redirect_back(fallback_location: restaurants_search_path)
+    redirect_back fallback_location: restaurants_search_path
   end
 end

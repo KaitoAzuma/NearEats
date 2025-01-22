@@ -1,10 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<div class="comments_show_container">
+  <%= link_to '', 'javascript:history.back()', class: "back_button show_back_btn" %>
+  <h1 class="pagetitle">投稿コメント一覧</h1>
 
-<%= render @comment %>
+  <p style="color: green"><%= notice %></p>
 
-<div>
-  <%= link_to "Edit this comment", edit_comment_path(@comment) %> |
-  <%= link_to "Back to comments", comments_path %>
+  <% if @comments.any? %>
+    <% @comments.each do |comment| %>
+      <div class="comment_textbox">
+        <%= comment.sentence %>
+      </div>
 
-  <%= button_to "Destroy this comment", @comment, method: :delete %>
+      <div class="comment_button_flex">
+        <%= button_to "コメント編集", edit_comment_path(comment), method: :get, class: "comment_button" %>
+        <%= button_to "コメント削除", comment, { method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？" } }, class: "comment_button comment_delete_btn" } %>
+      </div>
+      <hr>
+    <% end %>
+  <% else %>
+    まだコメントは投稿されていません。
+  <% end %>
 </div>
+

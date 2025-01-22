@@ -183,4 +183,54 @@
             height: 90%;
         }
     }
+
+    .comments_container{
+        width: 70%;
+        padding: 30px 50px;
+        margin: 60px auto;
+        border-radius: 30px;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+
+        .comment_title{
+            color: #4d9bc1;
+        }
+
+        .comment_flex{
+            display: flex;
+            margin: 20px 0 5px 0;
+        }
+
+        .comment_icon{
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+        }
+
+        .comment_textbox{
+            width: 40%;
+            padding: 10px 20px;
+            margin: 0 15px;
+            border: 1px solid #aaaaaa;
+            border-radius: 10px;
+        }
+
+        .comment_button_flex{
+            display: flex;
+            padding: 0 50px;
+
+            .comment_delete_btn{
+                margin-left: 5px;
+            }
+        }
+
+        .comment_input{
+            width: 40%;
+            height: 100px;
+        }
+
+        .comment_submit_btn{
+            width: 40%;
+            margin: 10px 0;
+        }
+    }
 }

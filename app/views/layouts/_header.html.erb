@@ -23,7 +23,7 @@
                 <hr class="sidemenu_border">
 
                 <ul class="nav_list">
-                    <li class="nav_item"><div class="list_item">ユーザー</div></li>
+                    <li class="nav_item"><%= link_to "投稿コメント一覧", comment_path(current_user.id), class: "list_item" %></li>
                     <li class="nav_item"><%= link_to "メールアドレス・パスワードの変更", edit_user_registration_path, class: "list_item" %></li>
                     <li class="nav_item"><%= button_to "ログアウト", destroy_user_session_path, class: 'logout_button', method: :delete %></li>
                 </ul>

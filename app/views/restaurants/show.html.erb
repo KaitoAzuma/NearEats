@@ -68,10 +68,60 @@
         </tr>
       </tbody>
     </table>
-
-    <%= link_to 'exページ', restaurants_ex_path %>
   <% end %>
 
   <a href="http://webservice.recruit.co.jp/"><img src="http://webservice.recruit.co.jp/banner/hotpepper-s.gif" 
   alt="ホットペッパーグルメ Webサービス" width="135" height="17" border="0" title="ホットペッパーグルメ Webサービス"></a>
+</div>
+
+<div class="comments_container">
+  <h3 class="comment_title">コメント</h3>
+  <p style="color: green"><%= notice %></p>
+
+  <% if @comments.any? %>
+    <% @comments.each do |comment| %>
+      <p>
+        <div class="comment_flex">
+          <%= image_tag 'user_icon_s.png', class: 'comment_icon' %>
+
+          <div class="comment_textbox">
+            <strong><%= comment.user.name %></strong><br>
+            <%= comment.sentence %>
+          </div>
+        </div>
+
+        <% if user_signed_in? %>
+          <% if comment.user_id == current_user.id %>
+            <div class="comment_button_flex">
+              <%= button_to "コメント編集", edit_comment_path(comment), method: :get, class: "comment_button" %>
+              <%= button_to "コメント削除", comment, { method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？" } }, class: "comment_button comment_delete_btn" } %>
+            </div>
+          <% end %>
+        <% end %>
+      </p>
+    <% end %>
+  <% else %>
+    まだコメントはありません。
+  <% end %>
+
+  <hr>
+
+  <h3 class="comment_title">コメント投稿</h3>
+  <% if user_signed_in? %>
+    <%= form_with(model: @new_comment) do |form| %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      <%= form.hidden_field :shop_id, value: @shop_id %>
+
+      <div>
+        <strong><%= form.label :sentence, "コメント投稿", style: "display: block" %></strong>
+        <%= form.text_area :sentence, class: "comment_input" %>
+      </div>
+
+      <div>
+        <%= form.submit "投稿", class: "button comment_submit_btn" %>
+      </div>
+    <% end %>
+  <% else %>
+    コメントを投稿する場合はログインしてください。
+  <% end %>
 </div>

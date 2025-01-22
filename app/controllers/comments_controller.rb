@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1 or /comments/1.json
   def show
+    @comments = Comment.where(user_id: current_user.id)
   end
 
   # GET /comments/new
@@ -25,10 +26,10 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: "Comment was successfully created." }
+        format.html { redirect_back fallback_location: restaurants_search_path, notice: "コメントが登録されました。" }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_back fallback_location: restaurants_search_path, notice: "コメントが正しく登録されませんでした。" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
@@ -38,7 +39,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: "Comment was successfully updated." }
+        format.html { redirect_to comment_path(current_user.id), notice: "コメントが更新されました。" }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +53,7 @@ class CommentsController < ApplicationController
     @comment.destroy!
 
     respond_to do |format|
-      format.html { redirect_to comments_path, status: :see_other, notice: "Comment was successfully destroyed." }
+      format.html { redirect_back fallback_location: restaurants_search_path, status: :see_other, notice: "コメントが削除されました。" }
       format.json { head :no_content }
     end
   end

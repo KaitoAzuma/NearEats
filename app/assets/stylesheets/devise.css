@@ -25,27 +25,6 @@
             height: 23px;
         }
 
-        .button{
-            position: relative;
-            display: block;
-            width: 80%;
-            height: 45px;
-            background-color: #FFC224; /* 背景色 */
-            color: white; /* 文字色 */
-            padding: 10px 50px; /* パディング */
-            text-align: center; /* 文字のアライメント */
-            text-decoration: none; /* 文字装飾 */
-            font-size: 20px; /* フォントサイズ */
-            font-family: Arial, sans-serif; /* フォント */
-            font-weight:  bold;
-            margin: 25px auto; /* 外側の余白 */
-            cursor: pointer; /* カーソル */
-            border: none; /* ボーダーなし */
-            border-radius: 30px; /* ボーダーの角丸 */
-            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3); /* 影 */
-            transition: transform 0.1s ease-in-out; /* トランジション */
-        }
-
         .url{
             color: #0032c8;
             display: block;

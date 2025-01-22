@@ -11,22 +11,15 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+  <%= form.hidden_field :user_id %>
+  <%= form.hidden_field :shop_id %>
+
+  <div class="comment_form">
+    <strong><%= form.label :sentence, "コメント文", style: "display: block" %></strong>
+    <%= form.text_area :sentence, class: "comment_input" %>
   </div>
 
   <div>
-    <%= form.label :shop_id, style: "display: block" %>
-    <%= form.text_field :shop_id %>
-  </div>
-
-  <div>
-    <%= form.label :sentence, style: "display: block" %>
-    <%= form.text_area :sentence %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "更新", class: "button" %>
   </div>
 <% end %>
