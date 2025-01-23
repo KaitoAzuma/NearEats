@@ -3,16 +3,18 @@
    <%= ">" %> <%= "店舗詳細" %>
 </div>
 
-<div class="shopdetail_content">
+<div class="shopdetail_container">
   <% if flash[:alert] %>
     <p class="alert"><%= flash[:alert] %></p>
   <% end %>
 
   <% if @shop_detail.present? %>
     <div class="shopdetail_head">
-      <h2><%= @shop_detail[:name] %></h2>
-      <strong>ジャンル：</strong><%= @shop_detail[:genre][:name] %><br>
-      <strong>予算：</strong><%= @shop_detail[:budget][:name] %>
+      <div class="head_text">
+        <h2><%= @shop_detail[:name] %></h2>
+        <strong>ジャンル：</strong><%= @shop_detail[:genre][:name] %><br>
+        <strong>予算：</strong><%= @shop_detail[:budget][:name] %>
+      </div>
     </div>
 
     <img src="<%= @shop_detail[:photo][:pc][:l] %>" class="detail_image"><br>
@@ -32,7 +34,8 @@
           <th>アクセス</th>
           <td>
             最寄り駅: <%= @shop_detail[:station_name] %><br>
-            <%= @shop_detail[:access] %>
+            <%= @shop_detail[:access] %><br>
+            <%= link_to "Google Mapで表示", "https://www.google.com/maps?q=#{@shop_detail[:lat]},#{@shop_detail[:lng]}", target: "_blank", rel: "noopener noreferrer", class: "map_url" %>
           </td>
         </tr>
 

@@ -3,6 +3,10 @@
     .pagetitle{
         text-align: center;
         margin: 10px 0 25px 0;
+        @media (max-width: 768px) {
+            font-size: 25px;
+            margin: 0 0 20px 0;
+        }
     }
 
     .comments_show_container{
@@ -11,10 +15,17 @@
         margin: 60px auto;
         border-radius: 30px;
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+        @media (max-width: 768px) {
+            width: 80%;
+            padding: 30px 10px;
+        }
 
         .show_back_btn{
             position: relative;
             top: 50px;
+            @media (max-width: 768px) {
+                top: 35px;
+            }
         }
 
         .comment_textbox{
@@ -23,11 +34,19 @@
             margin: 0 15px;
             border: 1px solid #aaaaaa;
             border-radius: 10px;
+            @media (max-width: 768px) {
+                width: 93%;
+                padding: 8px 2%;
+                margin: 0 auto;
+            }
         }
 
         .comment_button_flex{
             display: flex;
             padding: 5px 20px;
+            @media (max-width: 768px) {
+                padding: 5px 2%;
+            }
 
             .comment_delete_btn{
                 margin-left: 5px;

@@ -5,14 +5,25 @@
         height: 100%;
         text-decoration: none;
         color: black;
+        @media (max-width: 768px) {
+            display: block;
+        }
     }
 
     .pagetitle{
         text-align: center;
         margin: 50px 0;
+        @media (max-width: 768px) {
+            margin: 30px 0;
+            font-size: 27px;
+            color: red;
+        }
     }
     .pagetitle_adjust{
         margin: 30px 0 50px 0;
+        @media (max-width: 768px) {
+            margin: 30px 0 35px 0;
+        }
     }
 
     .hotpepper_display{
@@ -28,11 +39,32 @@
         margin: 30px auto;
         border-radius: 20px; /* ボーダーの角丸 */
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.3); /* 影 */
+
+        @media (max-width: 768px) {
+            width: 90%;
+            padding: 30px 3%;
+            
+            p{
+                margin: 25px 0;
+            }
+        }
     }
 
-    .checkbox_unit{
-        display: inline-block;
-        margin-right: 10px;
+    .checkbox_flex{
+        display: flex;
+        width: 370px;
+        flex-wrap: wrap;
+        @media (max-width: 768px) {
+            width: 80%;
+        }
+
+        .checkbox_unit{
+            display: inline-block;
+            margin-right: 15px;
+            @media (max-width: 768px) {
+                margin-right: 20px;
+            }
+        }
     }
 
     .submit_button{
@@ -54,6 +86,11 @@
         border-radius: 30px;
         box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
         transition: transform 0.1s ease-in-out;
+
+        @media (max-width: 768px) {
+            width: 88%;
+            height: 50px;
+        }
     }
 
     .shopcount_display{
@@ -67,8 +104,20 @@
         border-radius: 20px;
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
 
+        @media (max-width: 768px) {
+            width: 90%;
+            padding: 20px 5px;
+
+            .shoplist_flexitem2{
+                margin: 0 8px;
+            }
+        }
+
         .shopinfo_image{
             margin-right: 15px;
+            @media (max-width: 768px) {
+                width: 100%;
+            }
         }
 
         .shopinfo_head{
@@ -90,6 +139,9 @@
 
     .shoplist_border{
         width: 750px;
+        @media (max-width: 768px) {
+            width: 80%;
+        }
     }
 
     .pagination{
@@ -127,17 +179,27 @@
         text-align: center;
     }
 
-    .shopdetail_content{
+    .shopdetail_container{
         width: 70%;
         padding: 30px 50px;
         margin: 60px auto;
         border-radius: 30px;
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+        @media (max-width: 768px) {
+            width: 95%;
+            padding: 30px 5px;
+        }
 
         .shopdetail_head{
             padding-bottom: 15px;
             margin-bottom: 40px;
             border-bottom: 2px solid #acacac;
+            @media (max-width: 768px) {
+                margin-bottom: 10px;
+                .head_text{
+                    margin: 0 10px;
+                }
+            }
         }
 
         h2{
@@ -150,6 +212,9 @@
 
         .detail_image{
             width: 40%;
+            @media (max-width: 768px) {
+                width: 100%;
+            }
         }
 
         .table_design {
@@ -182,6 +247,10 @@
         .table_design .options_th::after {
             height: 90%;
         }
+
+        .map_url{
+            color: #1149f2;
+        }
     }
 
     .comments_container{
@@ -190,6 +259,10 @@
         margin: 60px auto;
         border-radius: 30px;
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+        @media (max-width: 768px) {
+            width: 90%;
+            padding: 30px 15px;
+        }
 
         .comment_title{
             color: #4d9bc1;
@@ -212,6 +285,11 @@
             margin: 0 15px;
             border: 1px solid #aaaaaa;
             border-radius: 10px;
+            @media (max-width: 768px) {
+                padding: 10px 5px 10px 20px;
+                margin: 0 0 0 8px;
+                width: 75%;
+            }
         }
 
         .comment_button_flex{
@@ -226,11 +304,17 @@
         .comment_input{
             width: 40%;
             height: 100px;
+            @media (max-width: 768px) {
+                width: 100%;
+            }
         }
 
         .comment_submit_btn{
             width: 40%;
             margin: 10px 0;
+            @media (max-width: 768px) {
+                width: 100%;
+            }
         }
     }
 }
