@@ -13,7 +13,7 @@ class HotpepperApiClient
     end
   end
 
-  # 引数からパラメータを設定してHTTPリクエスト(GET)を送信
+  # 引数からパラメータ(緯度, 経度, 範囲, 取得数, オプション, 店舗名)を設定してHTTPリクエスト(GET)を送信
   def search_restaurants(lat, lng, range = 3, count = 50, options, name)
     response = @connection.get do |req|
       req.params[:key] = @api_key # APIキー
@@ -48,11 +48,14 @@ class HotpepperApiClient
     nil
   end
 
-  # 引数からパラメータ(idのみ)を設定してHTTPリクエスト(GET)を送信
+  # 引数からパラメータ(idは配列でも単体の文字列でも可能)を設定してHTTPリクエスト(GET)を送信
   def search_restaurant_id(id)
+    # idが配列であればカンマ区切りの文字列に変換、単体の文字列であればそのまま文字列にする
+    id_param = id.is_a?(Array) ? id.join(',') : id.to_s
+
     response = @connection.get do |req|
       req.params[:key] = @api_key # APIキー
-      req.params[:id] = id # お店id
+      req.params[:id] = id_param # お店id(単体もしくは複数)
       req.params[:format] = 'json' # レスポンス形式
     end
 

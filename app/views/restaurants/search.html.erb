@@ -1,29 +1,3 @@
-<script>
-document.addEventListener('turbo:load', () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        // 受け取った位置情報から緯度経度を取得
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        
-        // 取得した緯度経度をコンソールに表示
-        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-
-        // 取得した緯度経度をJavaScript変数に代入
-        document.getElementById('latitude').value = latitude;
-        document.getElementById('longitude').value = longitude;
-      },
-      (error) => {
-        console.error('Error getting geolocation:', error);
-      }
-    );
-  } else {
-    console.error('Geolocation is not supported by this browser.');
-  }
-});
-</script>
-
 <h1 class="pagetitle">周辺のレストランを検索</h1>
 
 <div class="form_container">
@@ -35,25 +9,25 @@ document.addEventListener('turbo:load', () => {
     <%= form.hidden_field :longitude, id: 'longitude' %>
 
     <p>
-      <strong><%= form.label :range, "検索範囲" %></strong><font color="#FF0000"> *</font><br>
-      <%= form.radio_button :range, 1 %>300m
-      <%= form.radio_button :range, 2 %>500m
-      <%= form.radio_button :range, 3, checked: true %>1km
-      <%= form.radio_button :range, 4 %>2km
-      <%= form.radio_button :range, 5 %>3km
+      <strong>検索範囲</strong><font color="#FF0000"> *</font><br>
+      <%= form.radio_button :range, 1 %><%= form.label :range_1, "300m" %>
+      <%= form.radio_button :range, 2 %><%= form.label :range_2, "500m" %>
+      <%= form.radio_button :range, 3, checked: true %><%= form.label :range_3, "1km" %>
+      <%= form.radio_button :range, 4 %><%= form.label :range_4, "2km" %>
+      <%= form.radio_button :range, 5 %><%= form.label :range_5, "3km" %>
     </p>
 
-    <strong><%= form.label :option, "検索オプション（複数選択可）" %></strong><br>
+    <strong>検索オプション（複数選択可）</strong><br>
     <div class="checkbox_flex">
-      <div class="checkbox_unit"><%= form.label :option, "Wi-Fiあり" %><%= form.check_box :option, { multiple: true }, "wifi", nil %></div>
-      <div class="checkbox_unit"><%= form.label :option, "ランチあり" %><%= form.check_box :option, { multiple: true }, "lunch", nil %></div>
-      <div class="checkbox_unit"><%= form.label :option, "飲み放題あり" %><%= form.check_box :option, { multiple: true }, "free_drink", nil %></div><br>
-      <div class="checkbox_unit"><%= form.label :option, "食べ放題あり" %><%= form.check_box :option, { multiple: true }, "free_food", nil %></div>
-      <div class="checkbox_unit"><%= form.label :option, "個室あり" %><%= form.check_box :option, { multiple: true }, "private_room", nil %></div>
-      <div class="checkbox_unit"><%= form.label :option, "禁煙席あり" %><%= form.check_box :option, { multiple: true }, "non_smoking", nil %></div><br>
-      <div class="checkbox_unit"><%= form.label :option, "駐車場あり" %><%= form.check_box :option, { multiple: true }, "parking", nil %></div>
-      <div class="checkbox_unit"><%= form.label :option, "バリアフリー" %><%= form.check_box :option, { multiple: true }, "barrier_free", nil %></div>
-      <div class="checkbox_unit"><%= form.label :option, "ペット可" %><%= form.check_box :option, { multiple: true }, "pet", nil %></div><br>
+      <div class="checkbox_unit"><%= form.label :option_wifi, "Wi-Fiあり" %><%= form.check_box :option, { multiple: true }, "wifi", nil %></div>
+      <div class="checkbox_unit"><%= form.label :option_lunch, "ランチあり" %><%= form.check_box :option, { multiple: true }, "lunch", nil %></div>
+      <div class="checkbox_unit"><%= form.label :option_free_drink, "飲み放題あり" %><%= form.check_box :option, { multiple: true }, "free_drink", nil %></div><br>
+      <div class="checkbox_unit"><%= form.label :option_free_food, "食べ放題あり" %><%= form.check_box :option, { multiple: true }, "free_food", nil %></div>
+      <div class="checkbox_unit"><%= form.label :option_private_room, "個室あり" %><%= form.check_box :option, { multiple: true }, "private_room", nil %></div>
+      <div class="checkbox_unit"><%= form.label :option_non_smoking, "禁煙席あり" %><%= form.check_box :option, { multiple: true }, "non_smoking", nil %></div><br>
+      <div class="checkbox_unit"><%= form.label :option_parking, "駐車場あり" %><%= form.check_box :option, { multiple: true }, "parking", nil %></div>
+      <div class="checkbox_unit"><%= form.label :option_barrier_free, "バリアフリー" %><%= form.check_box :option, { multiple: true }, "barrier_free", nil %></div>
+      <div class="checkbox_unit"><%= form.label :option_pet, "ペット可" %><%= form.check_box :option, { multiple: true }, "pet", nil %></div><br>
     </div>
 
     <p>
@@ -68,3 +42,30 @@ document.addEventListener('turbo:load', () => {
     <%= form.submit "検索", class: "submit_button" %>
   <% end %>
 </div>
+
+
+<script>
+  document.addEventListener('turbo:load', () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          // 受け取った位置情報から緯度経度を取得
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          
+          // 取得した緯度経度をコンソールに表示
+          console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+
+          // 取得した緯度経度をJavaScript変数に代入
+          document.getElementById('latitude').value = latitude;
+          document.getElementById('longitude').value = longitude;
+        },
+        (error) => {
+          console.error('Error getting geolocation:', error);
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+  });
+</script>

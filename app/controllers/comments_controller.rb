@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :set_comment, only: %i[ edit update destroy ]
 
   # GET /comments or /comments.json
   def index
@@ -9,6 +9,11 @@ class CommentsController < ApplicationController
   # GET /comments/1 or /comments/1.json
   def show
     @comments = Comment.where(user_id: current_user.id)
+    @shop_ids = Comment.where(user_id: current_user.id).pluck(:shop_id)
+
+    api_client = HotpepperApiClient.new()
+    @restaurants = api_client.search_restaurant_id(@shop_ids)
+    @restaurants = @restaurants[:results][:shop]
   end
 
   # GET /comments/new

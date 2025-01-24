@@ -1,0 +1,48 @@
+ <h1 class="pagetitle">お気に入り店舗一覧</h1>
+
+<% if flash[:alert] %>
+  <p class="alert"><%= flash[:alert] %></p>
+<% end %>
+
+<% if user_signed_in? %>
+  <% if @restaurants && @restaurants.present? %>
+    <div class="shopcount_display">
+      <strong><%= @start %></strong> ～ <strong><%= (@start + @current_shops_count) - 1 %></strong> 件を表示 / 
+      全 <strong><%= @total_shops_count %></strong> 件
+    </div>
+
+    <% @restaurants.each do |shop| %>
+      <div class="shoplist_container">
+        <%= link_to bookmark_path(id: shop[:id], result_url: request.url), class: "show_link" do %>
+          <div class="shoplist_flexitem1">
+            <img src="<%= shop[:photo][:pc][:l] %>" class="shopinfo_image">
+          </div>
+
+          <div class="shoplist_flexitem2">
+            <div class="shopinfo_head">
+              <div class="shopinfo_name"><%= shop[:name] %></div>
+              <%= shop[:genre][:name] %><br>
+            </div>
+
+            <p>住所: <%= shop[:address] %></p>
+            <p>アクセス: <%= shop[:access] %></p>
+          </div>
+        <% end %>
+      </div>
+      <hr class="shoplist_border">
+    <% end %>
+
+    <div class="paginate">
+      <%= paginate @restaurants %>
+    </div>
+
+    <div class="hotpepper_display">
+      <a href="http://webservice.recruit.co.jp/"><img src="http://webservice.recruit.co.jp/banner/hotpepper-s.gif" 
+      alt="ホットペッパーグルメ Webサービス" width="135" height="17" border="0" title="ホットペッパーグルメ Webサービス"></a>
+    </div>
+  <% else %>
+    <p class="warning_message">お気に入り店舗が登録されていません。</p>
+  <% end %>
+<% else %>
+  <p class="warning_message">お気に入り機能を使うにはログインしてください。</p>
+<% end %>

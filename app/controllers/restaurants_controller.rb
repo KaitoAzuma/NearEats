@@ -54,9 +54,10 @@ class RestaurantsController < ApplicationController
     # 参照する店舗に対するコメントを取得
     @comments = Comment.where(shop_id: @shop_id)
 
-    # ユーザーがログインしている場合、新しいコメント用のインスタンスを作成する
+    # ユーザーがログインしている場合、新しいコメントインスタンスの作成とブックマーク判定を行う
     if user_signed_in?
       @new_comment = Comment.new
+      @isBookmarked = Bookmark.exists?(user_id: current_user.id, shop_id: @shop_id)
     end
   end
 

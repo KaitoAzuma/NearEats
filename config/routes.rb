@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :bookmarks
+  resources :bookmarks, except: [:new, :edit, :update, :destroy]
   resources :comments
   devise_for :users
   resources :users
@@ -15,4 +17,5 @@ Rails.application.routes.draw do
   get "restaurants/result", to: "restaurants#result"
   get "restaurants/show", to: "restaurants#show"
   get "restaurants/ex", to: "restaurants#ex"
+  delete "bookmarks/destroy", to: "restaurants#destroy"
 end

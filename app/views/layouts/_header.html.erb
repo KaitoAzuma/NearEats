@@ -2,6 +2,10 @@
     <h1>NearEats</h1>
 
     <div class="nav">
+        <div class="header_features">
+            <%= button_to 'レストラン検索', restaurants_search_path, method: :get, class: "feature_button btn_left" %>
+            <%= button_to 'お気に入り店舗一覧', bookmarks_path, method: :get, class: "feature_button btn_right" %>
+        </div>
 
         <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
             <!-- ユーザーがログインしていた時の処理 -->
