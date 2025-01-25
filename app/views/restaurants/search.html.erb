@@ -1,7 +1,8 @@
 <h1 class="pagetitle">周辺のレストランを検索</h1>
 
 <div class="form_container">
-  <p>取得した位置情報から周辺のレストランを検索します。</p>
+  <h2 class="form_container_head">検索条件</h2>
+  <p class="form_explain">取得した位置情報から周辺のレストランを検索します。</p>
 
   <%= form_with url: restaurants_result_path, method: :get, local: true do |form| %>
     <%= form.hidden_field :latitude, id: 'latitude' %>
@@ -9,7 +10,7 @@
     <%= form.hidden_field :longitude, id: 'longitude' %>
 
     <p>
-      <strong>検索範囲</strong><font color="#FF0000"> *</font><br>
+      <strong>検索範囲（現在地からの半径距離）</strong><font color="#FF0000"> *</font><br>
       <%= form.radio_button :range, 1 %><%= form.label :range_1, "300m" %>
       <%= form.radio_button :range, 2 %><%= form.label :range_2, "500m" %>
       <%= form.radio_button :range, 3, checked: true %><%= form.label :range_3, "1km" %>

@@ -1,9 +1,11 @@
 class RestaurantsController < ApplicationController
 
+  # 条件検索入力
   def search
 
   end
 
+  # 検索結果
   def result
     # 前ページから送信されたフォーム内容より、グルメサーチAPIへのリクエスト送信に必要なパラメータを設定する
     lat = params[:latitude].to_f
@@ -38,6 +40,7 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  # 店舗詳細
   def show
     # 参照する店舗のidを設定
     @shop_id = params[:id]
@@ -61,7 +64,4 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def ex
-    redirect_back fallback_location: restaurants_search_path
-  end
 end

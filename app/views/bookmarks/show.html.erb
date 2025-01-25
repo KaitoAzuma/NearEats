@@ -3,8 +3,8 @@
 </div>
 
 <div class="shopdetail_container">
-  <% if flash[:alert] %>
-    <p class="alert"><%= flash[:alert] %></p>
+  <% if flash[:bm_max] %>
+    <p style="color: red"><%= flash[:bm_max] %></p>
   <% end %>
 
   <% if @shop_detail.present? %>

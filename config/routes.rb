@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  resources :bookmarks
   resources :bookmarks, except: [:new, :edit, :update, :destroy]
-  resources :comments
+  resources :comments, except: [:index, :new]
   devise_for :users
-  resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -16,6 +14,6 @@ Rails.application.routes.draw do
   get "restaurants/search", to: "restaurants#search"
   get "restaurants/result", to: "restaurants#result"
   get "restaurants/show", to: "restaurants#show"
-  get "restaurants/ex", to: "restaurants#ex"
-  delete "bookmarks/destroy", to: "restaurants#destroy"
+  patch "users/update", to: "users#update"
+  delete "bookmarks/destroy", to: "bookmarks#destroy"
 end

@@ -65,7 +65,20 @@
         }
 
         .user_delete_btn{
+            width: 90%;
             background-color: rgb(242, 0, 0);
         }
+    }
+
+    .error_single_message{
+        font-size: 15px;
+    }
+
+    .errors_full_messages{
+        padding: 3px;
+        color: rgb(154, 118, 45);
+        background-color: rgb(255, 230, 163);
+        border: 1px solid rgb(177, 135, 52);
+        border-radius: 3px;
     }
 }

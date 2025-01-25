@@ -1,7 +1,9 @@
 <div class="comments_show_container">
   <h1 class="pagetitle">投稿コメント一覧</h1>
 
-  <p style="color: green"><%= notice %></p>
+  <% if flash[:comment_notice] %>
+    <p style="color: green"><%= flash[:comment_notice] %></p>
+  <% end %>
 
   <% if @comments.any? %>
     <% @comments.each do |comment| %>

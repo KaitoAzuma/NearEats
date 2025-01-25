@@ -1,5 +1,5 @@
 require 'faraday' # HTTPクライアント
-require 'json' # JSONレスポンスを解析するため
+require 'json' # JSONレスポンスの解析
 
 class HotpepperApiClient
   BASE_URL = 'http://webservice.recruit.co.jp/hotpepper/gourmet/v1/'
@@ -56,6 +56,7 @@ class HotpepperApiClient
     response = @connection.get do |req|
       req.params[:key] = @api_key # APIキー
       req.params[:id] = id_param # お店id(単体もしくは複数)
+      req.params[:count] = 50 # 最大データ数
       req.params[:format] = 'json' # レスポンス形式
     end
 

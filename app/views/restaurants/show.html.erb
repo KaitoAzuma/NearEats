@@ -4,8 +4,8 @@
 </div>
 
 <div class="shopdetail_container">
-  <% if flash[:alert] %>
-    <p class="alert"><%= flash[:alert] %></p>
+  <% if flash[:bm_max] %>
+    <p style="color: red"><%= flash[:bm_max] %></p>
   <% end %>
 
   <% if @shop_detail.present? %>
@@ -14,6 +14,7 @@
         <h2><%= @shop_detail[:name] %></h2>
         <strong>ジャンル：</strong><%= @shop_detail[:genre][:name] %><br>
         <strong>予算：</strong><%= @shop_detail[:budget][:name] %>
+
         <% if user_signed_in? && @isBookmarked %>
           <%= link_to bookmarks_destroy_path(shop_id: @shop_id), data: { turbo_method: :delete } do %>
             <%= image_tag 'bookmarked_icon.png', class: 'bookmark_icon' %>

@@ -1,13 +1,21 @@
 <div class="devise_edit_container">
-  <h2 class="pagetitle">ユーザー情報の変更 1</h2>
+  <h2 class="pagetitle">ユーザー情報（1）の変更</h2>
 
-  <%= form_with url: restaurants_result_path, method: :get, local: true do |form| %>
+  <%= form_with url: users_update_path, method: :patch, local: true do |form| %>
+    <div class="field">
+      <%= form.label :name, "名前", style: "display: block" %>
+      <%= form.text_field :name, value: current_user.name, class: "form_input" %>
+    </div>
+
+    <div>
+      <%= form.submit "更新（1）", class: "button" %>
+    </div>
   <% end %>
 </div>
 
 
 <div class="devise_edit_container">
-  <h2 class="pagetitle">ユーザー情報の変更 2</h2>
+  <h2 class="pagetitle">ユーザー情報（2）の変更</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -37,12 +45,16 @@
     </div>
 
     <div class="field">
-      <%= f.label :current_password, "現在のパスワード" %><br />
+      <%= f.label :current_password, "現在のパスワード" %><font color="#FF0000"> *</font><br />
       <%= f.password_field :current_password, autocomplete: "current-password", class: "form_input" %>
     </div>
 
+    <p class="field">
+      <font color="#FF0000">* 必須</font>
+    </p>
+
     <div class="actions">
-      <%= f.submit "更新", class: "button" %>
+      <%= f.submit "更新（2）", class: "button" %>
     </div>
   <% end %>
 </div>
