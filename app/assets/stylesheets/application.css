@@ -372,8 +372,16 @@
 
 .hotpepper_display{
     display: block;
-    width: 150px;
-    margin: 20px auto;
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+    
+    .hotpepper1{
+        display: block;
+        width: 140px;
+        height: 20px;
+        margin: 0 auto;
+    }
 }
 
 .warning_message{
