@@ -59,7 +59,8 @@
         width: 370px;
         flex-wrap: wrap;
         @media (max-width: 768px) {
-            width: 80%;
+            width: 85%;
+            margin-bottom: 8px;
         }
 
         .checkbox_unit{

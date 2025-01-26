@@ -29,7 +29,7 @@ class RestaurantsController < ApplicationController
       @restaurants_all = api_client.search_restaurants(lat, lng, range, count, options, name)
 
       # ページング処理
-      @restaurants = Kaminari.paginate_array(@restaurants_all[:results][:shop]).page(page).per(per_page)
+      @restaurants = Kaminari.paginate_array(Array(@restaurants_all[:results][:shop])).page(page).per(per_page)
       @current_shops_count = @restaurants.size
       @total_shops_count = @restaurants_all[:results][:results_returned]
       @start = (page.to_i - 1) * per_page + 1

@@ -2,7 +2,7 @@
 
 <div class="form_container">
   <h2 class="form_container_head">検索条件</h2>
-  <p class="form_explain">取得した位置情報から周辺のレストランを検索します。</p>
+  <p class="form_explain">取得した位置情報から周辺のレストランを最大50件まで検索します。</p>
 
   <%= form_with url: restaurants_result_path, method: :get, local: true do |form| %>
     <%= form.hidden_field :latitude, id: 'latitude' %>
