@@ -37,7 +37,7 @@
     z-index: 10;
     width: 100%;
     height: 90px;
-    background-color: white;
+    background-color: rgb(255, 251, 207);
     border-bottom: 2.5px solid #bdbdbd;
     @media (max-width: 768px) {
         height: 100px;
@@ -78,7 +78,7 @@
             padding: 0 30px;
             display: inline;
             border: none;
-            background-color: white;
+            background-color: rgb(255, 251, 207);
             cursor: pointer;
             @media (max-width: 768px) {
                 width: 100%;
